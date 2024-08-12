@@ -18,7 +18,7 @@ importers:
         specifier: ^3.6.1
         version: 3.6.1
       node-fetch:
-        specifier: ^2.6.7
+        specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
       '@eslint/js':
