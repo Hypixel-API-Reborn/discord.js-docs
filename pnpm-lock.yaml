@@ -15,7 +15,7 @@ importers:
         specifier: ^13.6.0
         version: 13.17.1
       fuse.js:
-        specifier: ^3.4.6
+        specifier: ^3.6.1
         version: 3.6.1
       node-fetch:
         specifier: ^2.6.7
