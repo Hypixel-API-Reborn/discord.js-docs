@@ -7,6 +7,9 @@
   "author": "TeeSeal <teesealz@gmail.com>",
   "license": "MIT",
   "types": "types/index.d.ts",
+  "engines": {
+    "node": ">=16.6.0"
+  },
   "scripts": {
     "lint": "npx eslint src/",
     "lint:fix": "npx eslint src/ --fix",
@@ -15,7 +18,7 @@
   },
   "dependencies": {
     "common-tags": "^1.8.0",
-    "discord.js": "^14.15.3",
+    "discord.js": "^13.6.0",
     "fuse.js": "^3.4.6",
     "node-fetch": "^2.6.7"
   },
