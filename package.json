@@ -6,6 +6,10 @@
   "repository": "git@github.com:TeeSeal/discord.js-docs.git",
   "author": "TeeSeal <teesealz@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "npx eslint src/",
+    "lint:fix": "npx eslint src/ --fix"
+  },
   "dependencies": {
     "common-tags": "^1.8.0",
     "fuse.js": "^3.4.6",
@@ -13,11 +17,8 @@
   },
   "types": "types/index.d.ts",
   "devDependencies": {
-    "eslint": "^5.1.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0"
+    "@eslint/js": "^9.8.0",
+    "eslint": "^9.8.0",
+    "globals": "^15.9.0"
   }
 }
