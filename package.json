@@ -18,7 +18,7 @@
     "prettier:check": "npx prettier --check src/ types/"
   },
   "dependencies": {
-    "common-tags": "^1.8.0",
+    "common-tags": "^1.8.2",
     "discord.js": "^13.6.0",
     "fuse.js": "^3.6.1",
     "node-fetch": "^2.6.7"
