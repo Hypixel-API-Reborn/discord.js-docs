@@ -22,10 +22,10 @@ importers:
         version: 2.7.0
     devDependencies:
       '@eslint/js':
-        specifier: ^9.8.0
+        specifier: ^9.9.0
         version: 9.9.0
       eslint:
-        specifier: ^9.8.0
+        specifier: ^9.9.0
         version: 9.9.0
       globals:
         specifier: ^15.9.0
