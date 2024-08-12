@@ -12,8 +12,8 @@
   },
   "packageManager": "pnpm@9.7.0",
   "scripts": {
-    "lint": "npx eslint src/",
-    "lint:fix": "npx eslint src/ --fix",
+    "lint:check": "npx eslint src/",
+    "lint": "npx eslint src/ --fix",
     "prettier": "npx prettier --write src/ types/",
     "prettier:check": "npx prettier --check src/ types/"
   },
