@@ -8,7 +8,7 @@
   "license": "MIT",
   "types": "types/index.d.ts",
   "engines": {
-    "node": ">=16.6.0"
+    "node": ">=16.20.2"
   },
   "packageManager": "pnpm@9.7.0",
   "scripts": {
