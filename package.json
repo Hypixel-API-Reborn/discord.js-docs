@@ -21,7 +21,7 @@
     "common-tags": "^1.8.2",
     "discord.js": "^13.6.0",
     "fuse.js": "^3.6.1",
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.7.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
