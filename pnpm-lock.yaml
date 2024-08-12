@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       common-tags:
-        specifier: ^1.8.0
+        specifier: ^1.8.2
         version: 1.8.2
       discord.js:
         specifier: ^13.6.0
