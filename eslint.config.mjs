@@ -1,26 +1,24 @@
-import prettier from 'eslint-config-prettier';
-import ts from 'typescript-eslint';
 import globals from 'globals';
+import js from '@eslint/js';
 
 export default [
-  ...ts.configs.recommended,
-  prettier,
+  js.configs.recommended,
   {
-    ignores: ['**/node_modules/', '**/build/', '**/pnpm-lock.yaml'],
+    ignores: ['docs/**', 'tests/**', 'node_modules/*'],
     languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: 'module',
+      ecmaVersion: 2021,
+      sourceType: 'commonjs',
       globals: {
-        ...globals.es2022,
-        ...globals.node,
-        guild: 'writable'
+        ...globals.commonjs,
+        ...globals.es2021,
+        ...globals.node
       }
     },
     rules: {
       'max-len': ['error', { code: 120, ignoreUrls: true, ignoreComments: true }],
-      '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
       'no-constant-condition': ['error', { checkLoops: false }],
       'prefer-const': ['warn', { destructuring: 'all' }],
+      'no-unused-vars': ['error', { args: 'none' }],
       curly: ['warn', 'multi-line', 'consistent'],
       'logical-assignment-operators': 'warn',
       'no-template-curly-in-string': 'error',
@@ -45,7 +43,6 @@ export default [
       'default-case-last': 'warn',
       'no-self-compare': 'error',
       'no-new-wrappers': 'error',
-      'no-fallthrough': 'error',
       'no-lone-blocks': 'error',
       'no-undef-init': 'error',
       'no-else-return': 'warn',
