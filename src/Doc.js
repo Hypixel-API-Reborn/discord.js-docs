@@ -60,12 +60,13 @@ class Doc extends DocBase {
   }
 
   get(...terms) {
+    const exclude = Array.isArray(terms[0]) ? terms.shift() : [];
     terms = terms.filter((term) => term).map((term) => term.toLowerCase());
     let elem = this.findChild(terms.shift());
     if (!elem || !terms.length) return elem || null;
     while (terms.length) {
       const term = terms.shift();
-      const child = elem.findChild(term);
+      const child = elem.findChild(term, exclude);
       if (!child) return null;
       elem = terms.length && child.typeElement ? child.typeElement : child;
     }
@@ -77,7 +78,7 @@ class Doc extends DocBase {
     if (!result.length) return null;
     const filtered = [];
     while (0 < result.length && 10 > filtered.length) {
-      const element = this.get(...result.shift().item.id.split('#'));
+      const element = this.get(filtered, ...result.shift().split('#'));
       if (excludePrivateElements && 'private' === element.access) continue;
       filtered.push(element);
     }
@@ -89,9 +90,10 @@ class Doc extends DocBase {
     if (element) return element.embed(options);
     const searchResults = this.search(query, options);
     if (!searchResults) return null;
-    return this.baseEmbed()
+    const embed = new EmbedBuilder(this.baseEmbed())
       .setTitle('Search results:')
       .setDescription(searchResults.map((el) => `**${el.link}**`).join('\n'));
+    return embed;
   }
 
   toFuseFormat() {
@@ -115,7 +117,8 @@ class Doc extends DocBase {
     return new EmbedBuilder()
       .setTitle(this.title)
       .setAuthor({ name: `${this.title} (${this.branch})`, url: this.baseDocsURL })
-      .setColor(this.color);
+      .setColor(this.color)
+      .toJSON();
   }
 
   formatType(types) {
@@ -133,12 +136,6 @@ class Doc extends DocBase {
       })
       .join('');
     return `**${typestring}**`;
-  }
-
-  static getRepoURL(id) {
-    const [name, branch] = id.split('/');
-    const project = { main: 'hypixel-api-reborn' }[name];
-    return `https://github.com/Hypixel-API-reborn/${project}/blob/${branch}/`;
   }
 
   static sources() {

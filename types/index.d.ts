@@ -1,4 +1,4 @@
-import { MessageEmbed } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import Fuse from 'fuse.js';
 
 export interface ResolveEmbedOptions {
@@ -59,15 +59,7 @@ export interface BaseEmbedData {
 }
 
 export interface DocsSources {
-  stable: 'https://raw.githubusercontent.com/discordjs/docs/main/discord.js/stable.json';
-  main: 'https://raw.githubusercontent.com/discordjs/docs/main/discord.js/main.json';
-  commando: 'https://raw.githubusercontent.com/discordjs/commando/docs/master.json';
-  rpc: 'https://raw.githubusercontent.com/discordjs/rpc/docs/master.json';
-  akairo: 'https://raw.githubusercontent.com/discord-akairo/discord-akairo/docs/master.json';
-  collection: 'https://raw.githubusercontent.com/discordjs/docs/main/collection/main.json';
-  builders: 'https://raw.githubusercontent.com/discordjs/docs/main/builders/main.json';
-  voice: 'https://raw.githubusercontent.com/discordjs/docs/main/voice/main.json';
-  rest: 'https://raw.githubusercontent.com/discordjs/docs/main/rest/main.json';
+  master: 'https://raw.githubusercontent.com/Hypixel-API-Reborn/hypixel-api-reborn/docs/master.json';
 }
 
 export interface DocFuseOptions {
@@ -111,7 +103,7 @@ export default class Doc extends DocBase {
   get color(): 0x2296f3 | 0x87202f | null;
   get(...terms: any[]): DocElement | null;
   search(query: string, options?: ResolveEmbedOptions): DocElement[] | null;
-  resolveEmbed(query: string, options?: ResolveEmbedOptions): MessageEmbed | null;
+  resolveEmbed(query: string, options?: ResolveEmbedOptions): EmbedBuilder | null;
   toFuseFormat(): FuseFormat[];
   toJSON(): Record<string, any>;
   baseEmbed(): BaseEmbedData;
@@ -175,15 +167,15 @@ export abstract class DocElement<Typedef extends boolean = boolean> extends DocB
   public get static(): boolean;
   public get typeElement(): DocElement | null;
 
-  public embed(options?: ResolveEmbedOptions): MessageEmbed;
-  public formatEmbed(embed: MessageEmbed, options?: ResolveEmbedOptions): MessageEmbed;
-  public attachProps(embed: MessageEmbed, options: ResolveEmbedOptions): void;
-  public attachMethods(embed: MessageEmbed, options: ResolveEmbedOptions): void;
-  public attachEvents(embed: MessageEmbed): void;
-  public attachParams(embed: MessageEmbed): void;
-  public attachReturn(embed: MessageEmbed): void;
-  public attachTypes(embed: MessageEmbed): void;
-  public attachExamples(embed: MessageEmbed): void;
+  public embed(options?: ResolveEmbedOptions): EmbedBuilder;
+  public formatEmbed(embed: EmbedBuilder, options?: ResolveEmbedOptions): EmbedBuilder;
+  public attachProps(embed: EmbedBuilder, options: ResolveEmbedOptions): void;
+  public attachMethods(embed: EmbedBuilder, options: ResolveEmbedOptions): void;
+  public attachEvents(embed: EmbedBuilder): void;
+  public attachParams(embed: EmbedBuilder): void;
+  public attachReturn(embed: EmbedBuilder): void;
+  public attachTypes(embed: EmbedBuilder): void;
+  public attachExamples(embed: EmbedBuilder): void;
 
   public toJSON(): DocElementReturnType;
 

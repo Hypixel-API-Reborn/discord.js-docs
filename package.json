@@ -14,8 +14,8 @@
   "scripts": {
     "lint:check": "npx eslint src/ index.js",
     "lint": "npx eslint --fix src/ index.js",
-    "prettier:check": "npx prettier --check src/ index.js",
-    "prettier": "npx prettier --write src/ index.js"
+    "prettier:check": "npx prettier --check src/ types/ index.js",
+    "prettier": "npx prettier --write src/ types/ index.js"
   },
   "dependencies": {
     "common-tags": "^1.8.2",
@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
-    "@j4cobi/eslint-plugin-sort-imports": "^1.0.2",
     "@types/eslint": "^9.6.1",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",

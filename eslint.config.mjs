@@ -1,6 +1,5 @@
-import globals from 'globals';
 import prettier from 'eslint-config-prettier';
-import sortImports from '@j4cobi/eslint-plugin-sort-imports';
+import globals from 'globals';
 import js from '@eslint/js';
 
 export default [
@@ -16,12 +15,7 @@ export default [
         ...globals.node
       }
     },
-    plugins: { 'sort-imports': sortImports },
     rules: {
-      'sort-imports/sort-imports': [
-        'error',
-        { ignoreCase: false, ignoreMemberSort: false, memberSyntaxSortOrder: ['all', 'single', 'multiple', 'none'] }
-      ],
       'max-len': ['error', { code: 120, ignoreUrls: true, ignoreComments: true }],
       'no-constant-condition': ['error', { checkLoops: false }],
       'prefer-const': ['warn', { destructuring: 'all' }],
