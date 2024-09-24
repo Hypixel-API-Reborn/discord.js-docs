@@ -12,21 +12,23 @@
   },
   "packageManager": "pnpm@9.7.0",
   "scripts": {
-    "lint:check": "npx eslint src/",
-    "lint": "npx eslint src/ --fix",
-    "prettier": "npx prettier --write src/ types/",
-    "prettier:check": "npx prettier --check src/ types/"
+    "lint:check": "npx eslint src/ index.js",
+    "lint": "npx eslint --fix src/ index.js",
+    "prettier:check": "npx prettier --check src/ index.js",
+    "prettier": "npx prettier --write src/ index.js"
   },
   "dependencies": {
     "common-tags": "^1.8.2",
-    "discord.js": "^13.17.1",
+    "discord.js": "^14.16.2",
     "fuse.js": "^3.6.1",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
-    "eslint": "^9.9.0",
-    "globals": "^15.9.0",
+    "@eslint/js": "^9.11.1",
+    "@j4cobi/eslint-plugin-sort-imports": "^1.0.2",
+    "@types/eslint": "^9.6.1",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.3.3"
   }
 }

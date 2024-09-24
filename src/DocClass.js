@@ -9,7 +9,6 @@ class DocClass extends DocElement {
     this.extends = data.extends || null;
     this.implements = data.implements || null;
     this.construct = data.construct;
-
     this.adoptAll(data.props, DocProp);
     this.adoptAll(data.methods, DocMethod);
     this.adoptAll(data.events, DocEvent);

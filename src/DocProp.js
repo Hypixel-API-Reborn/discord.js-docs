@@ -1,10 +1,11 @@
 const DocElement = require('./DocElement');
+const { flatten } = require('./Util');
 
 class DocProp extends DocElement {
   constructor(parent, data) {
     super(parent.doc, DocElement.types.PROP, data, parent);
     this.scope = data.scope;
-    this.type = data.type.flat(5);
+    this.type = flatten(data.type);
     this.nullable = data.nullable || false;
   }
 

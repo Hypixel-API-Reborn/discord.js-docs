@@ -27,25 +27,15 @@ class DocBase {
 
   childrenOfType(type) {
     const filtered = Array.from(this.children.values()).filter((child) => child.docType === type);
-
     return filtered.length ? filtered : null;
   }
 
-  findChild(query, exclude = []) {
+  findChild(query) {
     query = query.toLowerCase();
-
-    let docType = null;
-    if (query.endsWith('()')) {
-      query = query.slice(0, -2);
-      docType = types.METHOD;
-    } else if (query.startsWith('e-')) {
-      query = query.slice(2);
-      docType = types.EVENT;
-    }
-
-    return Array.from(this.children.values()).find(
-      (child) =>
-        !exclude.includes(child) && child.name.toLowerCase() === query && (!docType || child.docType === docType)
+    return Array.from(this.children.values()).find((child) =>
+      query.endsWith('()')
+        ? child.name.toLowerCase() === query.slice(0, -2) && child.docType === types.METHOD
+        : child.name.toLowerCase() === query
     );
   }
 
