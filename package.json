@@ -20,7 +20,7 @@
   "dependencies": {
     "common-tags": "^1.8.2",
     "discord.js": "^14.16.2",
-    "fuse.js": "^3.6.1",
+    "fuse.js": "^7.0.0",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
